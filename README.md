@@ -9,8 +9,8 @@
    ```xml
    <dependency>
        <groupId>se.drutt.cdk</groupId>
-       <artifactId>static-website-construct</artifactId>
-       <version>1.0.0</version>
+       <artifactId>static-website</artifactId>
+       <version>1.0</version>
    </dependency>
    ```
 
