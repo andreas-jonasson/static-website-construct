@@ -31,6 +31,7 @@ import java.util.List;
  * @author andreas.jonasson@gmail.com
  * @version 1.0
  */
+@SuppressWarnings("unused")
 public class StaticWebsiteConstruct extends Construct {
     
     private final Bucket websiteBucket;
