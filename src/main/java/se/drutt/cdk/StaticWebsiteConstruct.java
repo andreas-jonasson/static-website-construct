@@ -1,6 +1,6 @@
 package se.drutt.cdk;
 
-import software.amazon.awscdk.services.certificatemanager.Certificate;
+import software.amazon.awscdk.services.certificatemanager.ICertificate;
 import software.amazon.awscdk.services.cloudfront.*;
 import software.amazon.awscdk.services.cloudfront.origins.S3BucketOrigin;
 import software.amazon.awscdk.services.cloudfront.origins.S3BucketOriginWithOACProps;
@@ -46,7 +46,7 @@ public class StaticWebsiteConstruct extends Construct {
         private final String hostedZoneId;
         private final String zoneName;
         private final String webContentPath;
-        private final Certificate certificate;
+        private final ICertificate certificate;
         
         private StaticWebsiteProps(Builder builder) {
             this.bucketName = builder.bucketName;
@@ -66,7 +66,7 @@ public class StaticWebsiteConstruct extends Construct {
             private String hostedZoneId;
             private String zoneName;
             private String webContentPath;
-            private Certificate certificate;
+            private ICertificate certificate;
             
             /**
              * Sets the S3 bucket name.
@@ -123,7 +123,7 @@ public class StaticWebsiteConstruct extends Construct {
              * @param certificate ACM certificate (must be in us-east-1 for CloudFront)
              * @return this builder
              */
-            public Builder certificate(Certificate certificate) {
+            public Builder certificate(ICertificate certificate) {
                 this.certificate = certificate;
                 return this;
             }
