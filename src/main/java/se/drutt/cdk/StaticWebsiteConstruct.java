@@ -162,7 +162,7 @@ public class StaticWebsiteConstruct extends Construct {
         websiteBucket.grantRead(originAccessIdentity);
 
         IOrigin s3Origin = S3BucketOrigin.withOriginAccessControl(websiteBucket, S3BucketOriginWithOACProps.builder()
-                .originAccessLevels(List.of(AccessLevel.READ, AccessLevel.LIST))
+                .originAccessLevels(List.of(AccessLevel.READ))
                 .build());
 
         // Look up hosted zone
