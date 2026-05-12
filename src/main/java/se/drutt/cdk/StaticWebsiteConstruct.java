@@ -203,7 +203,6 @@ public class StaticWebsiteConstruct extends Construct {
                 .encryption(BucketEncryption.S3_MANAGED)
                 .versioned(true)
                 .blockPublicAccess(BlockPublicAccess.BLOCK_ALL)
-                .enforceSSL(true)
                 .build();
 
         // Create S3 origin with Origin Access Control (OAC)
@@ -288,7 +287,6 @@ public class StaticWebsiteConstruct extends Construct {
             Bucket logBucket = Bucket.Builder.create(this, "LogBucket")
                     .encryption(BucketEncryption.S3_MANAGED)
                     .blockPublicAccess(BlockPublicAccess.BLOCK_ALL)
-                    .enforceSSL(true)
                     .lifecycleRules(List.of(LifecycleRule.builder()
                             .expiration(software.amazon.awscdk.Duration.days(90))
                             .build()))
