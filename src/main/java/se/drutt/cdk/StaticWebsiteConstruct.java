@@ -1,5 +1,6 @@
 package se.drutt.cdk;
 
+import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.services.certificatemanager.ICertificate;
 import software.amazon.awscdk.services.cloudfront.*;
 import software.amazon.awscdk.services.cloudfront.origins.S3BucketOrigin;
@@ -221,9 +222,10 @@ public class StaticWebsiteConstruct extends Construct {
         ResponseHeadersPolicy securityHeadersPolicy = ResponseHeadersPolicy.Builder.create(this, "SecurityHeaders")
                 .securityHeadersBehavior(ResponseSecurityHeadersBehavior.builder()
                         .strictTransportSecurity(ResponseHeadersStrictTransportSecurity.builder()
-                                .accessControlMaxAge(software.amazon.awscdk.Duration.seconds(63072000))
+                                .accessControlMaxAge(Duration.days(365))
                                 .includeSubdomains(true)
                                 .preload(true)
+                                .override(true)
                                 .build())
                         .contentTypeOptions(ResponseHeadersContentTypeOptions.builder()
                                 .override(true)
